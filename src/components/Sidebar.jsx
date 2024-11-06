@@ -9,7 +9,11 @@ import { IoClipboardOutline } from "react-icons/io5";
 
 function Sidebar() {
   const [activeLink, setActiveLink] = useState(3);
-
+  const [isLargeSideBar, setisLargeSideBar] = useState(true);
+  const changeSideBar = (index) => {
+    setActiveLink(index);
+    setisLargeSideBar(true);
+  };
   const navItems = [
     { label: "Dashboard", icon: <RxDashboard size={20} /> },
     { label: "Learn", icon: <HiOutlineLightBulb size={22} /> },
@@ -20,35 +24,77 @@ function Sidebar() {
   ];
 
   return (
-    <div className="w-[20%] bg-white">
-      <div className="w-[75%] mt-8 ml-14">
-        <nav className="space-y-4">
-          <a href="#" className="flex items-center text-[#172B4D] px-2">
-            <IoMdMenu className="mr-3" size={20} />
-            <span className="font-DMSans text-[24px] font-black">
-              AlgoZenith
-            </span>
-          </a>
-          {navItems.map((item, index) => (
-            <a
-              key={index}
-              href="#"
-              onClick={() => setActiveLink(index)}
-              className={`flex items-center py-2 px-2 rounded-lg ${
-                activeLink === index
-                  ? "bg-[#D6F4FF]"
-                  : "hover:bg-[#D6F4FF] hover:rounded-lg"
-              }`}
-            >
-              {item.icon}
-              <span className="font-DMSans text-[15.04px] ml-3">
-                {item.label}
-              </span>
-            </a>
-          ))}
-        </nav>
-      </div>
-    </div>
+    <>
+      {isLargeSideBar ? (
+        <div className="w-[20%] bg-white">
+          <div className="w-[75%] mt-8 ml-14">
+            <nav className="space-y-4">
+              <a href="#" className="flex items-center text-[#172B4D] px-2">
+                <IoMdMenu
+                  className="mr-3"
+                  size={20}
+                  onClick={() => {
+                    setisLargeSideBar(false);
+                  }}
+                />
+                <span className="font-DMSans text-[24px] font-black">
+                  AlgoZenith
+                </span>
+              </a>
+              {navItems.map((item, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  onClick={() => setActiveLink(index)}
+                  className={`flex items-center py-2 px-2 rounded-lg ${
+                    activeLink === index
+                      ? "bg-[#D6F4FF]"
+                      : "hover:bg-[#D6F4FF] hover:rounded-lg"
+                  }`}
+                >
+                  {item.icon}
+                  <span className="font-DMSans text-[15.04px] ml-3">
+                    {item.label}
+                  </span>
+                </a>
+              ))}
+            </nav>
+          </div>
+        </div>
+      ) : (
+        <div className="w-[10%] bg-white">
+          <div className="w-[50%] mt-8 ml-10">
+            <nav className="space-y-4">
+              <a
+                href="#"
+                className="flex justify-center items-center py-2 text-[#172B4D] px-2"
+              >
+                <IoMdMenu
+                  size={20}
+                  onClick={() => {
+                    setisLargeSideBar(true);
+                  }}
+                />
+              </a>
+              {navItems.map((item, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  onClick={() => changeSideBar(index)}
+                  className={`flex items-center justify-center py-2 px-2 rounded-lg ${
+                    activeLink === index
+                      ? "bg-[#D6F4FF]"
+                      : "hover:bg-[#D6F4FF] hover:rounded-lg"
+                  }`}
+                >
+                  {item.icon}
+                </a>
+              ))}
+            </nav>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
