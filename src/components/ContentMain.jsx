@@ -9,11 +9,11 @@ import Part2 from "./Part2";
 import Part3 from "./Part3";
 
 const items = [
-  { title: "Video 1", icon: <FiPlayCircle size={19} /> },
-  { title: "Article 1", icon: <RxQuestionMarkCircled size={19} /> },
-  { title: "Quiz 1", icon: <RxQuestionMarkCircled size={19} /> },
-  { title: "Coding Exercise 1", icon: <IoCodeSlashOutline size={19} /> },
-  { title: "Combined Resource 1", icon: <FaRegCopy size={19} /> },
+  { title: "DP Intro", icon: <FiPlayCircle size={19} /> },
+  { title: "DP Article", icon: <RxQuestionMarkCircled size={19} /> },
+  { title: "Quiz", icon: <RxQuestionMarkCircled size={19} /> },
+  { title: "Coding Problem", icon: <IoCodeSlashOutline size={19} /> },
+  { title: "Combined Resource", icon: <FaRegCopy size={19} /> },
 ];
 
 function ContentMain() {

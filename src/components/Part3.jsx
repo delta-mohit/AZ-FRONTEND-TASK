@@ -9,7 +9,7 @@ function Part3() {
       <div className=" flex justify-between px-4 mt-4">
         <div>
           <p className="text-[#17384D]">PART 3</p>
-          <p className="font-bold">Lorem Ipsum Dolor Sit Amet</p>
+          <p className="font-bold">Graph Algoithms</p>
         </div>
         <div className="flex items-center justify-between basis-[45%] text-[#17384D]">
           <div className="flex justify-center items-center space-x-[5px]">
