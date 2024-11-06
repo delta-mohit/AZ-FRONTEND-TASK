@@ -6,7 +6,10 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 function Part3({ isOpen, toggleAccordion }) {
   return (
     <>
-      <div className=" flex justify-between px-4 mt-4">
+      <div
+        className="flex justify-between px-4 mt-4 hover:cursor-pointer"
+        onClick={toggleAccordion}
+      >
         <div>
           <p className="text-[#17384D]">PART 3</p>
           <p className="font-bold">Graph Algoithms</p>
@@ -24,9 +27,9 @@ function Part3({ isOpen, toggleAccordion }) {
             <FaRegCopy size={20} />
             <p>5</p>
           </div>
-          <button onClick={toggleAccordion} className="focus:outline-none">
+          <div className="focus:outline-none">
             {isOpen ? <FaChevronUp size={20} /> : <FaChevronDown size={20} />}
-          </button>
+          </div>
         </div>
       </div>
 
