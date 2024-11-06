@@ -1,9 +1,9 @@
 import { WiTime4 } from "react-icons/wi";
 import { SiBookmeter } from "react-icons/si";
 import { FaRegCopy } from "react-icons/fa6";
-import { FaChevronDown } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
-function Part2() {
+function Part2({ isOpen, toggleAccordion }) {
   return (
     <>
       <div className=" flex justify-between px-4 mt-4">
@@ -24,9 +24,9 @@ function Part2() {
             <FaRegCopy size={20} />
             <p>5</p>
           </div>
-          <div>
-            <FaChevronDown size={20} />
-          </div>
+          <button onClick={toggleAccordion} className="focus:outline-none">
+            {isOpen ? <FaChevronUp size={20} /> : <FaChevronDown size={20} />}
+          </button>
         </div>
       </div>
 

@@ -8,7 +8,7 @@ import Part1 from "./Part1";
 import Part2 from "./Part2";
 import Part3 from "./Part3";
 
-const items = [
+const items1 = [
   { title: "DP Intro", icon: <FiPlayCircle size={19} /> },
   { title: "DP Article", icon: <RxQuestionMarkCircled size={19} /> },
   { title: "Quiz", icon: <RxQuestionMarkCircled size={19} /> },
@@ -16,37 +16,74 @@ const items = [
   { title: "Combined Resource", icon: <FaRegCopy size={19} /> },
 ];
 
-function ContentMain() {
-  const [isOpen, setIsOpen] = useState(false);
+const items2 = [
+  { title: "Tree Advanced", icon: <FiPlayCircle size={19} /> },
+  { title: "Tree Article", icon: <RxQuestionMarkCircled size={19} /> },
+  { title: "Coding Problem", icon: <IoCodeSlashOutline size={19} /> },
+];
 
-  const toggleAccordion = () => {
-    setIsOpen(!isOpen);
-  };
+const items3 = [
+  { title: "Graph Basics", icon: <FiPlayCircle size={19} /> },
+  { title: "Resources", icon: <FaRegCopy size={19} /> },
+];
+
+function ContentMain() {
+  const [isOpenPart1, setIsOpenPart1] = useState(false);
+  const [isOpenPart2, setIsOpenPart2] = useState(false);
+  const [isOpenPart3, setIsOpenPart3] = useState(false);
+
+  const togglePart1 = () => setIsOpenPart1(!isOpenPart1);
+  const togglePart2 = () => setIsOpenPart2(!isOpenPart2);
+  const togglePart3 = () => setIsOpenPart3(!isOpenPart3);
+
   return (
     <div className="ml-4 flex flex-col space-y-5 w-full mb-8">
       <div className="rounded-lg border-[1px] border-[#a4e6ff]">
-        <Part1 isOpen={isOpen} toggleAccordion={toggleAccordion} />
-        {isOpen && (
+        <Part1 isOpen={isOpenPart1} toggleAccordion={togglePart1} />
+        {isOpenPart1 && (
           <div>
-            {" "}
-            {items.map((item, index) => {
-              return (
-                <React.Fragment key={index}>
-                  <Lesson item={item} />
-                  {index < items.length - 1 && (
-                    <div className="h-[2px] bg-gradient-to-r from-white via-gray-200 via-50% to-white"></div>
-                  )}
-                </React.Fragment>
-              );
-            })}
+            {items1.map((item, index) => (
+              <React.Fragment key={index}>
+                <Lesson item={item} />
+                {index < items1.length - 1 && (
+                  <div className="h-[2px] bg-gradient-to-r from-white via-gray-200 via-50% to-white"></div>
+                )}
+              </React.Fragment>
+            ))}
           </div>
         )}
       </div>
+
       <div className="rounded-lg border-[1px] border-[#a4e6ff]">
-        <Part2 />
+        <Part2 isOpen={isOpenPart2} toggleAccordion={togglePart2} />
+        {isOpenPart2 && (
+          <div>
+            {items2.map((item, index) => (
+              <React.Fragment key={index}>
+                <Lesson item={item} />
+                {index < items2.length - 1 && (
+                  <div className="h-[2px] bg-gradient-to-r from-white via-gray-200 via-50% to-white"></div>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        )}
       </div>
+
       <div className="rounded-lg border-[1px] border-[#a4e6ff]">
-        <Part3 />
+        <Part3 isOpen={isOpenPart3} toggleAccordion={togglePart3} />
+        {isOpenPart3 && (
+          <div>
+            {items3.map((item, index) => (
+              <React.Fragment key={index}>
+                <Lesson item={item} />
+                {index < items3.length - 1 && (
+                  <div className="h-[2px] bg-gradient-to-r from-white via-gray-200 via-50% to-white"></div>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
