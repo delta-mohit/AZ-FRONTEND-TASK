@@ -5,7 +5,7 @@ import { Tooltip } from "react-tooltip";
 function ContentHeader() {
   return (
     <>
-      <div className="flex justify-center sm:justify-between items-center mx-[1px] sm:mx-8 mt-6">
+      <div className="flex justify-center sm:gap-3 sm:justify-between items-center mx-[1px] sm:mx-8 mt-6">
         <Tabbar />
         <button className="hidden sm:flex justify-center items-center space-x-2 rounded-lg border border-[#a4e6ff] p-[7px] my-anchor-element ">
           <GoInfo />
