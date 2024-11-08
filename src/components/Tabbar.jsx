@@ -12,12 +12,12 @@ const tabs = [
 const Tabbar = () => {
   const [activeTab, setActiveTab] = useState(0);
   return (
-    <ul class="flex justify-center gap-4 font-DMSans text-sm text-center rounded-lg p-1 bg-gradient-to-b from-blue-50 via-blue-50  to-white">
+    <ul className="flex justify-center gap-4 font-DMSans text-sm text-center rounded-lg p-1 bg-gradient-to-b from-blue-50 via-blue-50 to-white">
       {tabs.map((tab, index) => (
-        <li>
+        <li key={index}>
           <a
             href="#"
-            class={`flex justify-center p-2 items-center ${
+            className={`flex justify-center p-2 items-center ${
               activeTab === index
                 ? "font-bold bg-white rounded-lg shadow-md"
                 : ""

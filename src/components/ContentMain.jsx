@@ -37,7 +37,7 @@ function ContentMain() {
   const togglePart3 = () => setIsOpenPart3(!isOpenPart3);
 
   return (
-    <div className="ml-4 flex flex-col space-y-5 w-full mb-8">
+    <div className="flex flex-col space-y-5 w-full mb-8">
       <div className="rounded-lg border-[1px] border-[#a4e6ff]">
         <Part1 isOpen={isOpenPart1} toggleAccordion={togglePart1} />
         {isOpenPart1 && (

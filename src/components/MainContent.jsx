@@ -1,11 +1,11 @@
 import Content from "./Content";
-import Header from "./Header";
+import Sidebar from "./Sidebar";
 
 function MainContent() {
   return (
     <>
-      <div className="flex-1 p-8">
-        <Header />
+      <div className="flex mt-4">
+        <Sidebar />
         <Content />
       </div>
     </>

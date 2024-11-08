@@ -14,16 +14,16 @@ function Part1({ isOpen, toggleAccordion }) {
           <p className="text-[#17384D]">PART 1</p>
           <p className="font-black">Dynamic Programming</p>
         </div>
-        <div className="flex items-center justify-between basis-[45%] text-[#17384D]">
+        <div className="flex items-center justify-between gap-4 basis-[42%] sm:basis-[35%] lg:basis-[45%] text-[#17384D]">
           <div className="flex justify-center items-center space-x-[5px]">
             <WiTime4 size={25} />
             <p>02:00:00</p>
           </div>
-          <div className="flex justify-center items-center space-x-[5px]">
+          <div className="hidden lg:flex justify-center items-center space-x-[5px]">
             <SiBookmeter size={19} />
             <p>Medium</p>
           </div>
-          <div className="flex justify-center items-center space-x-[5px]">
+          <div className="hidden lg:flex justify-center items-center space-x-[5px]">
             <FaRegCopy size={20} />
             <p>5</p>
           </div>

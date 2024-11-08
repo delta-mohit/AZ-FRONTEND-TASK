@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { RxDashboard } from "react-icons/rx";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { HiOutlineUserGroup } from "react-icons/hi2";
@@ -6,13 +7,16 @@ import { SiBookmeter } from "react-icons/si";
 import { CiStar } from "react-icons/ci";
 import { IoMdMenu } from "react-icons/io";
 import { IoClipboardOutline } from "react-icons/io5";
+import { SIDEMENU } from "../../constants.js";
+import { sideMenuActions } from "../features/Sidemenu/SidemenuSlice.js";
 
 function Sidebar() {
   const [activeLink, setActiveLink] = useState(3);
-  const [isLargeSideBar, setisLargeSideBar] = useState(true);
+  const sideMenu = useSelector((state) => state.sideMenu);
+  const dispatch = useDispatch();
   const changeSideBar = (index) => {
     setActiveLink(index);
-    setisLargeSideBar(true);
+    dispatch(sideMenuActions.setLarge());
   };
   const navItems = [
     { label: "Dashboard", icon: <RxDashboard size={20} /> },
@@ -25,35 +29,23 @@ function Sidebar() {
 
   return (
     <>
-      {isLargeSideBar ? (
-        <div className="w-[20%] bg-white">
-          <div className="w-[75%] mt-8 ml-14">
-            <nav className="space-y-4">
-              <a href="#" className="flex items-center text-[#172B4D] px-2">
-                <IoMdMenu
-                  className="mr-3"
-                  size={20}
-                  onClick={() => {
-                    setisLargeSideBar(false);
-                  }}
-                />
-                <span className="font-DMSans text-[24px] font-black">
-                  AlgoZenith
-                </span>
-              </a>
+      {sideMenu === SIDEMENU.LARGE ? (
+        <div className="max-w-[228px] mr-7 bg-white">
+          <div className="mt-4">
+            <nav className="space-y-2">
               {navItems.map((item, index) => (
                 <a
                   key={index}
                   href="#"
                   onClick={() => setActiveLink(index)}
-                  className={`flex items-center py-2 px-2 rounded-lg ${
+                  className={`flex items-center p-3 rounded-lg ${
                     activeLink === index
                       ? "bg-[#D6F4FF]"
                       : "hover:bg-[#D6F4FF] hover:rounded-lg"
                   }`}
                 >
                   {item.icon}
-                  <span className="font-DMSans text-[15.04px] ml-3">
+                  <span className="font-DMSans text-[16px] ml-3">
                     {item.label}
                   </span>
                 </a>
@@ -62,30 +54,19 @@ function Sidebar() {
           </div>
         </div>
       ) : (
-        <div className="w-[10%] bg-white">
-          <div className="w-[50%] mt-8 ml-10">
-            <nav className="space-y-4">
-              <a
-                href="#"
-                className="flex justify-center items-center py-2 text-[#172B4D] px-2"
-              >
-                <IoMdMenu
-                  size={20}
-                  onClick={() => {
-                    setisLargeSideBar(true);
-                  }}
-                />
-              </a>
+        <div className="w-[42px] mr-7 bg-white hidden sm:block">
+          <div className="mt-4">
+            <nav className="space-y-2">
               {navItems.map((item, index) => (
                 <a
                   key={index}
                   href="#"
                   onClick={() => changeSideBar(index)}
-                  className={`flex items-center justify-center py-2 px-2 rounded-lg ${
+                  className={`flex items-center justify-center p-3 rounded-lg ${
                     activeLink === index
                       ? "bg-[#D6F4FF]"
                       : "hover:bg-[#D6F4FF] hover:rounded-lg"
-                  }`}
+                  } `}
                 >
                   {item.icon}
                 </a>
